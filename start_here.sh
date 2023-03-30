@@ -7,7 +7,7 @@
 # ------------------------------------------------------------------
 
 models=(
-  # "edsr"
+  "edsr",
   "srcnn"
 )
 
@@ -40,7 +40,7 @@ check_val_every_n_epoch=5
 send_telegram_msg=1
 
 # enable prediction
-# enable_predict=1
+enable_predict=1
 # paths must be like
 # $datasets_dir/DATASET_1_NAME/*.png
 # $datasets_dir/DATASET_2_NAME/*.png

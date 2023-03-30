@@ -237,6 +237,7 @@ def main(Model: models.SRModel, args: argparse.Namespace):
     # start training
     try:
         trainer.fit(model, dataset)
+        ## TUNER HERE
 
         # upload last model checkpoint to comet.ml
         if 'comet' in args.loggers:

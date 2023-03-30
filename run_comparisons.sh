@@ -1,3 +1,9 @@
+# 6266203281:AAF3PEwOIwx5g5Hl0qylmP_HOOxOejr9_wg
+# user_id 2060421262
+
+# pip3 install --force-reinstall -v "python-telegram-bot==13.5"
+telegram-send --configure
+
 #!/bin/bash
 
 . utils.sh
@@ -8,7 +14,7 @@
 
 train_datasets=(
   "DIV2K"
-  )
+)
 
 # size of the patch from the HR to be used during training
 patch_sizes=(
@@ -19,7 +25,7 @@ scales=(
   # 2
   # 3
   4
-  )
+)
 
 losses=(
   "l1"
@@ -32,16 +38,16 @@ losses=(
   )
 
 models_params=(
-  "ddbpn DDBPN"
+  # "ddbpn DDBPN"
   "edsr EDSR_baseline --n_resblocks 16 --n_feats 64 --res_scale 0.1"
   "edsr EDSR --n_resblocks 32 --n_feats 256 --res_scale 0.1"
-  "rdn RDN_ablation --rdn_config A"
-  "rdn RDN --rdn_config B"
-  "rcan RCAN --n_feats 64 --reduction 16 --n_resgroups 10 --n_resblocks 20"
-  "srcnn SRCNN"
-  "srresnet SRResNet"
-  "wdsr WDSR_A --type A"
-  "wdsr WDSR_B --type B"
+  # "rdn RDN_ablation --rdn_config A"
+  # "rdn RDN --rdn_config B"
+  # "rcan RCAN --n_feats 64 --reduction 16 --n_resgroups 10 --n_resblocks 20"
+  # "srcnn SRCNN"
+  # "srresnet SRResNet"
+  # "wdsr WDSR_A --type A"
+  # "wdsr WDSR_B --type B"
 )
 
 optimizers=(
@@ -57,7 +63,7 @@ optimizers=(
 batch_size=16
 check_val_every_n_epoch=25
 datasets_dir="/datasets"
-epochs=2000
+epochs=10 #2000
 eval_datasets="DIV2K Set5 Set14 B100 Urban100"
 log_level="info"
 log_loss_every_n_epochs=10
@@ -157,4 +163,5 @@ for train_dataset in "${train_datasets[@]}"; do
   done
 done
 
+telegram-send "Finished comparisons."
 # endregion
